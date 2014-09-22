@@ -1,0 +1,46 @@
+<?php
+/**
+ * Implements hook_help().
+ */
+function atinternets_help($path, $arg) {
+  switch ($path) {
+    case 'admin/config/system/atinternet':
+      return t('<a href="@ga_url">At internet</a>  .', array('@ga_url' => 'http://www.atinertnet.com/'));
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */ 
+function atinternet_menu() {
+$items=array();
+  $items['admin/config/system/atinternet'] = array(
+    'title' => t('At Internet'),
+     'description' => t('TO DO'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('atinernet_settings_form'),
+    'access arguments' => array('administer atinternet settings'),
+    'file' => 'atinternet.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+return $items
+}
+
+/**
+ * Implements hook_permission().
+ */
+function atinternet_permission() {
+  return array(
+     'administer atinternet settings' => array(
+      'title' => t('administer At Internet settings'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_page_alter() to insert  .
+ */
+ function googleanalytics_page_alter(&$page) {
+}
+
+
