@@ -41,6 +41,24 @@ function atinternet_permission() {
  * Implements hook_page_alter() to insert  .
  */
  function googleanalytics_page_alter(&$page) {
+      $script=' 
+<!--
+xtnv = document;        //parent.document or top.document or document         
+xtsd = "http://123456";
+xtsite = "123456";
+xtn2 = "";        // level 2 site ID
+xtpage = "";        //page name (with the use of :: to create chapters)
+xtdi = "";        //implication degree
+xt_multc = "";		//all the xi indicators (like "&x1=...&x2=....&x3=...")
+xt_an = "";        //user ID
+xt_ac = "";        //category ID
+//do not modify below
+if (window.xtparam!=null){window.xtparam+="&ac="+xt_ac+"&an="+xt_an+xt_multc;}
+else{window.xtparam="&ac="+xt_ac+"&an="+xt_an+xt_multc;};
+>';
+      drupal_add_js($script, array('scope' => 'footer', 'type' => 'inline'));
+      drupal_add_js( "http://www.site.com/xtcore.js ", array('scope' => 'footer', 'type' => 'inline'));
+      $no='<noscript><img width="1" height="1" alt="" src="http:// .xiti.com/hit.xiti?s=   &s2=&p=&di=&an=&ac=" ></noscript>';
 }
 
 
