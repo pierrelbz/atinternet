@@ -40,7 +40,7 @@ function atinternet_permission() {
 /**
  * Implements hook_page_alter() to insert  .
  */
- function googleanalytics_page_alter(&$page) {
+ function atinternet_page_alter(&$page) {
 }
 
 
